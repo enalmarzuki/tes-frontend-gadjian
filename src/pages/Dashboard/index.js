@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import {
-  Header,
-  Sidebar,
-  Personnel,
+  Beranda,
   Button,
-  Pagination,
+  Daily,
+  Header,
+  Personnel,
+  Sidebar,
 } from "../../components";
 import { getUser } from "../../config/redux/action";
 
@@ -49,7 +50,6 @@ export default function Dashboard(props) {
       setSpliceArr(tempUser);
       return;
     }
-    // dispatch(getUser({ page: 1 }));
   }, [dispatch, users.dataUser.length, users.dataUser, startIndex, endIndex]);
 
   return (
@@ -57,20 +57,23 @@ export default function Dashboard(props) {
       <Header onClick={() => setShowMenu(!showMenu)} showMenu={showMenu} />
       <Sidebar onClick={() => setShowMenu(!showMenu)} showMenu={showMenu} />
 
-      <div className="">
-        {history.location.pathname === "/" && (
-          <>
-            <Personnel users={spliceArr} />
-            <Pagination
-              startIndex={startIndex}
-              endIndex={endIndex}
-              length={users.dataUser.length - 1}
-              nextPage={() => nextPage()}
-              prevPage={() => prevPage()}
-            />
-          </>
-        )}
-      </div>
+      {history.location.pathname === "/" && <Beranda />}
+
+      {history.location.pathname === "/personel-list" && (
+        <>
+          <Personnel
+            users={spliceArr}
+            isLoading={users.loading}
+            startIndex={startIndex}
+            endIndex={endIndex}
+            length={users.dataUser.length - 1}
+            nextPage={() => nextPage()}
+            prevPage={() => prevPage()}
+          />
+        </>
+      )}
+
+      {history.location.pathname === "/daily-attendance" && <Daily />}
 
       <Button type="button-scroll-top" />
     </div>
