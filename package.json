@@ -24,6 +24,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "deploy": "yarn build && firebase deploy",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
