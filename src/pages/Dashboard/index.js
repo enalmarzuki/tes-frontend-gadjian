@@ -58,18 +58,19 @@ export default function Dashboard(props) {
       <Sidebar onClick={() => setShowMenu(!showMenu)} showMenu={showMenu} />
 
       <div className="">
-        {history.location.pathname === "/personel-list" && (
-          <Personnel users={spliceArr} />
+        {history.location.pathname === "/" && (
+          <>
+            <Personnel users={spliceArr} />
+            <Pagination
+              startIndex={startIndex}
+              endIndex={endIndex}
+              length={users.dataUser.length - 1}
+              nextPage={() => nextPage()}
+              prevPage={() => prevPage()}
+            />
+          </>
         )}
       </div>
-
-      <Pagination
-        startIndex={startIndex}
-        endIndex={endIndex}
-        length={users.dataUser.length - 1}
-        nextPage={() => nextPage()}
-        prevPage={() => prevPage()}
-      />
 
       <Button type="button-scroll-top" />
     </div>

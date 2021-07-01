@@ -5,7 +5,10 @@ import { Card } from "../../molecules";
 
 export default function Personnel({ users }) {
   return (
-    <div className="bg-gray-50 p-4 md:w-8/12 lg:w-9/12 xl:w-10/12 md:ml-auto md:pt-24">
+    <div
+      data-testid="personnel-list"
+      className="bg-gray-50 p-4 md:w-8/12 lg:w-9/12 xl:w-10/12 md:ml-auto md:pt-24"
+    >
       <div className="bg-white p-4 lg:flex lg:items-center lg:justify-between">
         <div className="">
           <p className="text-primary uppercase font-bold text-3xl">

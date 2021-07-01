@@ -13,9 +13,10 @@ export default function ButtonIcon({
   const history = useHistory();
   return (
     <button
+      data-testid="button-icon"
       disabled={disabled}
       className={`${className ? className : "flex items-center mt-4 "} ${
-        history.location.pathname === path ? "text-primary" : "bg-none"
+        history?.location.pathname === path ? "text-primary" : "bg-none"
       }`}
       onClick={onClick}
     >

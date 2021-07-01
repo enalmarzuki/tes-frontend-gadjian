@@ -4,7 +4,10 @@ import moment from "moment";
 
 export default function index({ data }) {
   return (
-    <div className="w-full md:w-1/2 md:px-2 lg:w-1/3 xl:w-1/4">
+    <div
+      data-testid="card-user"
+      className="w-full md:w-1/2 md:px-2 lg:w-1/3 xl:w-1/4"
+    >
       <div className="bg-white py-2 px-4 mt-4 rounded-2xl">
         <div className="flex items-center justify-between border-b-2 border-gray-200 -mx-4 px-4 pb-2">
           <p className="text-gray-500 text-sm truncate">
